@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Section</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .section {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+        .wave-title {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #0288d1;
+        }
+        .user-info-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .user-input {
+            padding: 10px;
+            font-size: 1em;
+            width: 90%;
+            max-width: 300px;
+            border: 1px solid #0288d1;
+            border-radius: 8px;
+        }
+        .quiz-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .quiz-card {
+            background: #0288d1;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .quiz-option {
+            background: #fff;
+            color: #0288d1;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .quiz-option:hover {
+            background: #4fc3f7;
+        }
+        .lesson-complete-btn {
+            background: #0288d1;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            display: block;
+            margin: 20px auto 0;
+        }
+        .score-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <section class="section quiz-section">
+        <h2 class="wave-title">Test Your Knowledge</h2>
+        <div class="user-info-container">
+            <input type="text" id="user-name" placeholder="Enter your name" class="user-input">
+        </div>
+        <div class="quiz-container">
+            <!-- Question 1 -->
+            <div class="quiz-card">
+                <p>1. What is the main source of energy that drives the hydrologic cycle?</p>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">a) Wind</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">b) The Moon</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'correct')">c) Heat from the Sun</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">d) Geothermal energy</button>
+            </div>
+            <!-- Question 2 -->
+            <div class="quiz-card">
+                <p>2. What percentage of water vapor in the atmosphere is contributed by transpiration?</p>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">a) 5%</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'correct')">b) 10%</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">c) 20%</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">d) 30%</button>
+            </div>
+            <!-- Question 3 -->
+            <div class="quiz-card">
+                <p>3. What is the process called when ice transforms directly into water vapor at high altitudes?</p>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">a) Evaporation</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'correct')">b) Sublimation</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">c) Condensation</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">d) Precipitation</button>
+            </div>
+            <!-- Question 4 -->
+            <div class="quiz-card">
+                <p>4. What happens when the atmosphere reaches 100% relative humidity?</p>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">a) Evaporation begins</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">b) Transpiration occurs</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'correct')">c) Precipitation occurs</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">d) Sublimation starts</button>
+            </div>
+            <!-- Question 5 -->
+            <div class="quiz-card">
+                <p>5. Which of the following is NOT true about oceans?</p>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">a) They cover 71% of Earth's surface</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">b) There is only one global ocean</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'correct')">c) The Southern Ocean was recognized before 2020</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">d) They contain numerous seas, gulfs, bays, and straits</button>
+            </div>
+            <!-- Question 6 -->
+            <div class="quiz-card">
+                <p>6. What is the total volume of water in the world’s oceans?</p>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">a) 1340 Million m³</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'correct')">b) 1340 Million km³</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">c) 1300 Million km³</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">d) 1400 Million km³</button>
+            </div>
+            <!-- Question 7 -->
+            <div class="quiz-card">
+                <p>7. What is the topmost oceanic zone where sunlight supports photosynthesis?</p>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">a) Twilight Zone</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">b) Midnight Zone</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">c) Abyssal Zone</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'correct')">d) Sunlight Zone</button>
+            </div>
+            <!-- Question 8 -->
+            <div class="quiz-card">
+                <p>8. Which oceanic zone receives minimal light and is home to bioluminescent fish?</p>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">a) Sunlight Zone</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'correct')">b) Twilight Zone</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">c) Midnight Zone</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">d) Abyssal Zone</button>
+            </div>
+            <!-- Question 9 -->
+            <div class="quiz-card">
+                <p>9. Which process involves the evaporation of water from plant leaves and stems?</p>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">a) Condensation</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">b) Precipitation</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'correct')">c) Transpiration</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">d) Sublimation</button>
+            </div>
+            <!-- Question 10 -->
+            <div class="quiz-card">
+                <p>10. Which body of water surrounds Antarctica and was officially proposed as an ocean by the International Hydrographic Organization in 2020?</p>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">a) Arctic Ocean</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">b) Atlantic Ocean</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'correct')">c) Southern Ocean</button>
+                <button class="quiz-option" onclick="selectAnswer(this, 'incorrect')">d) Indian Ocean</button>
+            </div>
+        </div>
+        <button class="lesson-complete-btn" onclick="submitQuiz()">Submit Quiz</button>
+        <div class="score-container hidden" id="score-container">
+            <h3 id="user-info-display"></h3>
+            <h3 id="final-score"></h3>
+        </div>
+    </section>
+
+    <script>
+        let score = 0;
+        let answeredQuestions = 0;
+
+        function selectAnswer(button, correctness) {
+            const quizCard = button.parentElement;
+            const allButtons = quizCard.querySelectorAll('.quiz-option');
+
+            allButtons.forEach(btn => {
+                btn.disabled = true;
+                btn.style.backgroundColor = btn === button ? '#4caf50' : '#f44336';
+            });
+
+            if (correctness === 'correct') {
+                score++;
+            }
+
+            answeredQuestions++;
+        }
+
+        function submitQuiz() {
+            const userName = document.getElementById('user-name').value;
+            const scoreContainer = document.getElementById('score-container');
+            const userInfoDisplay = document.getElementById('user-info-display');
+            const finalScoreElement = document.getElementById('final-score');
+
+            if (answeredQuestions < 10) {
+                alert("Please answer all questions before submitting.");
+                return;
+            }
+
+            if (!userName) {
+                alert("Please enter your name before submitting.");
+                return;
+            }
+
+            userInfoDisplay.textContent = `Name: ${userName}`;
+            finalScoreElement.textContent = `Final Score: ${score}/10`;
+            scoreContainer.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
